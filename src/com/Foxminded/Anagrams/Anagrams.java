@@ -4,9 +4,10 @@ import java.util.StringJoiner;
 
 public class Anagrams {
 
+    private final String WORD_SEPARATOR = " ";
+
     public String swapLettersInTheWords(String someWords) {
 
-        String WORD_SEPARATOR = " ";
         String[] words = someWords.split(WORD_SEPARATOR);
         StringJoiner sentence = new StringJoiner(WORD_SEPARATOR);
 
@@ -42,10 +43,7 @@ public class Anagrams {
             positionOfLetterToBeSwappedFromSecondPartOfTheWord--;
 
         }
-        StringBuilder newWord = new StringBuilder();
-        newWord.append(letters);
-
-        return newWord.toString();
+        return String.valueOf(letters);
     }
 
     private void swapLetters(char[] array, int i, int j) {
@@ -54,7 +52,4 @@ public class Anagrams {
         array[i] = array[j];
         array[j] = tmp;
     }
-
-
 }
-
