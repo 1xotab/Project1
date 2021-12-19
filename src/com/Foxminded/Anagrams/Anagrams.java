@@ -1,6 +1,20 @@
 package com.Foxminded.Anagrams;
 
+import java.util.StringJoiner;
+
 public class Anagrams {
+
+    public String swapLettersInTheWords(String someWords) {
+
+        String WORD_SEPARATOR = " ";
+        String[] words = someWords.split(WORD_SEPARATOR);
+        StringJoiner sentence = new StringJoiner(WORD_SEPARATOR);
+
+        for (String s : words) {
+            sentence.add(swapLettersInTheWord(s));
+        }
+        return sentence.toString();
+    }
 
     private String swapLettersInTheWord(String word) {
 
@@ -28,10 +42,10 @@ public class Anagrams {
             positionOfLetterToBeSwappedFromSecondPartOfTheWord--;
 
         }
-        StringBuilder wordWithSwappedLetters = new StringBuilder();
-        wordWithSwappedLetters.append(letters);
+        StringBuilder newWord = new StringBuilder();
+        newWord.append(letters);
 
-        return wordWithSwappedLetters.toString();
+        return newWord.toString();
     }
 
     private void swapLetters(char[] array, int i, int j) {
@@ -41,17 +55,6 @@ public class Anagrams {
         array[j] = tmp;
     }
 
-    public String swapLettersInTheWords(String someWords) {
 
-        String space = " ";
-        String[] words = someWords.split(space);
-        StringBuilder sentence = new StringBuilder();
-
-        for (String s : words) {
-            sentence.append(swapLettersInTheWord(s));
-            sentence.append(space);
-        }
-        return sentence.toString();
-    }
 }
 
